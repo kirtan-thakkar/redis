@@ -11,8 +11,11 @@ export async function GET(request){
     //set + expiry
     // await redis.setex("user:4",60,"This is user 4")
     const setexpiry = await redis.get("user:4")
+
+    await redis.setnx("user:4","THIS IS THE NEW USER 4 CREATED AFTER THE FIRST USER:4 GOT EXPIRED IN 60S");
+    const result2 = await redis.get("user:4")
     return NextResponse.json({
         message: result,
-        setexpiry: setexpiry
+        setexpiry: result2
     })
 }
