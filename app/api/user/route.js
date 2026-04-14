@@ -17,6 +17,10 @@ export async function GET(request){
 
     await redis.setnx("user:4","THIS IS THE NEW USER 4 CREATED AFTER THE FIRST USER:4 GOT EXPIRED IN 60S Okay so make sure that you have the TTL of user:4 to be less than 60s to see the effect of setnx command");
     const result2 = await redis.get("user:4")
+
+    //one  more set + expiry which would expire in 120s
+    const result1 = await redis.setex("user5",120,"This is the user5 mother fucker")
+
     return NextResponse.json({
         setexpiry: user1
     })
