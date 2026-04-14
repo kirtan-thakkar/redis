@@ -21,7 +21,10 @@ export async function GET(request){
     //one  more set + expiry which would expire in 120s
     const result1 = await redis.setex("user5",120,"This is the user5 mother fucker")
 
+    const result5  = await redis.get("user5");
     return NextResponse.json({
-        setexpiry: user1
+        setexpiry: user1,
+        setex: result1,
+        get: result5
     })
 }
