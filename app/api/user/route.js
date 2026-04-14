@@ -22,6 +22,8 @@ export async function GET(request){
     const result1 = await redis.setex("user5",120,"This is the user5 mother fucker")
 
     const result5  = await redis.get("user5");
+
+    await redis.setex("user:6",160,"This is user 6")
     return NextResponse.json({
         setexpiry: user1,
         setex: result1,
