@@ -34,6 +34,7 @@ export async function GET(request){
             color:"black"
         }
     )
+    const hashsetresult =  await redis.hget("bike:1", "model")
     console.log(hashset)
     return NextResponse.json({
         setexpiry: user1,
