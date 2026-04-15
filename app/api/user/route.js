@@ -24,6 +24,16 @@ export async function GET(request){
     const result5  = await redis.get("user5");
 
     await redis.setex("user:6",160,"This is user 6")
+
+    //hasset
+    await redis.hset(
+        "bike:1",{
+            model:"pulsar",
+            price:"120000",
+            year:"2026",
+            color:"black"
+        }
+    )
     return NextResponse.json({
         setexpiry: user1,
         setex: result1,
