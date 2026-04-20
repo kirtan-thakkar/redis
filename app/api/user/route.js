@@ -35,10 +35,19 @@ export async function GET(request){
         }
     )
     const hashsetresult =  await redis.hget("bike:1", "model")
-    console.log(hashset)
+
+    const fieldData = await redis.hset(
+        "bike:2",{
+            model:"pulsar 150",
+            price:"90000",
+            year:"2024",
+            color:"white",
+            cc:"150"
+        }
+    )
+
+    const responsee = await redis.hgetall("bike:2");
     return NextResponse.json({
-        setexpiry: user1,
-        setex: result1,
-        get: result5
+        message : responsee
     })
 }
