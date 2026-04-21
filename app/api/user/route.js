@@ -46,6 +46,8 @@ export async function GET(request){
         }
     )
 
+    const t2 = redis.hget("bike:2","model")
+
     const responsee = await redis.hgetall("bike:2");
     return NextResponse.json({
         message : responsee
