@@ -47,9 +47,13 @@ export async function GET(request){
     )
 
     const t2 = redis.hget("bike:2","model")
+    
+    //decrase the price of the bike:1 by 100
+    const newPrcie = await redis.hincrby("bike:1","price",-100)
 
     const responsee = await redis.hgetall("bike:2");
     return NextResponse.json({
-        message : responsee
+        message : responsee,
+        newPrice : newPrcie
     })
 }
