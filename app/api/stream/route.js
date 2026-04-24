@@ -10,9 +10,18 @@ export async function GET(request){
         interest:"coding",
     })
 
+    const res2  = await redis.xadd("2ndstream","*",{
+        name:"Tisha",
+        lastname:"jobanputra",
+        age:22,
+        interest:"coding,"
+        
+    })
+
     return NextResponse.json({
         message: "Stream entry added successfully",
         id: stream,
-        response : res1
+        response1 : res1,
+        response2 : res2
     });
 }
