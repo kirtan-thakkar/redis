@@ -18,6 +18,13 @@ export async function GET(request){
         
     })
 
+    const res3 = await redis.xadd("3rdstream","*",{
+        name:"Tisha",
+        lastname:"jobanputra",
+        age:22,
+        interest:"coding," 
+    })
+
     return NextResponse.json({
         message: "Stream entry added successfully",
         id: stream,
