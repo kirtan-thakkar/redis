@@ -19,9 +19,16 @@ export async function GET(request){
     })
 
     const res3 = await redis.xadd("3rdstream","*",{
-        name:"Tisha",
-        lastname:"jobanputra",
-        age:22,
+        name:"dipmala",
+        lastname:"thakkar",
+        age:42,
+        interest:"cooking" 
+    })
+
+    const res4 = await redis.xadd("4thstream","*",{
+        name:"krishna",
+        lastname:"thakkar",
+        age:25,
         interest:"coding," 
     })
 
