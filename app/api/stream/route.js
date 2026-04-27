@@ -31,6 +31,13 @@ export async function GET(request){
         age:25,
         interest:"coding," 
     })
+    
+    const res5 = await redis.xadd("%thstream","*",{
+        name:"op",
+        lastname:"thakkar",
+        age:25,
+        interest:"coding,"
+    })
 
     return NextResponse.json({
         message: "Stream entry added successfully",
